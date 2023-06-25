@@ -1,0 +1,28 @@
+---
+version: 1
+
+# build_arg_defaults:
+#     EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:1.2.0'
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  prepend: |
+    RUN whoami
+    RUN cat /etc/os-release
+  append:
+    - RUN echo This is a post-install command! #ok
+    - RUN ls -la /etc #ok
+    - RUN alternatives --set python /usr/bin/python3 #test3
+    - RUN pip3 uninstall --yes ansible-runner && pip3 install ansible-runner==2.3.2 #test4
+    - RUN pip install pyvmomi #ok
+    - RUN pip install --upgrade git+https://github.com/vmware/vsphere-automation-sdk-python.git #ok
+    - COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor #test
+    - RUN mkdir -p /var/run/receptor #test
+    #- USER 1000 #test2
+    - ADD run.sh /run.sh #test4
+    - CMD /run.sh #test4
+    - RUN git lfs install #test2
