@@ -12,20 +12,20 @@
 * mkdir /tmp/awx/
 * copias os arquivos:
 
-* 1 - sudo apt update && sudo apt upgrade -y
-* 2 - sudo apt install podman -y
-* 3 - sudo apt update -y
-* 4 - sudo apt install curl -y
-* 5 - echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-* 6 - curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key" | sudo apt-key add -
-* 7 - mkdir -p  ~/venv/ansible-builder
-* 8 - sudo apt install python3.10-venv -y
-* 9 - python3 -m venv ~/venv/ansible-builder
-* 10 - source ~/venv/ansible-builder/bin/activate
-* 11 - pip3 install ansible-builder
-* 12 - cd /tmp/awx/
-* 13 - ansible-builder build --tag ghcr.io/ffabiosantosgcm/awx-vmware-ee:1.0 -f execution-environment.1.0.yml
-* 14 - ansible-builder build --tag ghcr.io/ffabiosantosgcm/awx-vmware-ee:2.0 -f execution-environment.2.0.yml
+1 - sudo apt update && sudo apt upgrade -y
+2 - sudo apt install podman -y
+3 - sudo apt update -y
+4 - sudo apt install curl -y
+5 - echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+6 - curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key" | sudo apt-key add -
+7 - mkdir -p  ~/venv/ansible-builder
+8 - sudo apt install python3.10-venv -y
+9 - python3 -m venv ~/venv/ansible-builder
+10 - source ~/venv/ansible-builder/bin/activate
+11 - pip3 install ansible-builder
+12 - cd /tmp/awx/
+13 - ansible-builder build --tag ghcr.io/ffabiosantosgcm/awx-vmware-ee:1.0 -f execution-environment.1.0.yml
+14 - ansible-builder build --tag ghcr.io/ffabiosantosgcm/awx-vmware-ee:2.0 -f execution-environment.2.0.yml
 
 
 ## Segunda etapa - Teste local
